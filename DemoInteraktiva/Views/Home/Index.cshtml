@@ -1,4 +1,4 @@
-﻿
+﻿@model HomeViewModel
 
         <!-- Banner -->
         <div id="banner-wrapper">
@@ -29,10 +29,13 @@
                             <a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
                             <div class="inner">
                                 <header>
-                                    <h2>Put something here</h2>
-                                    <p>Maybe here as well I think</p>
+                                    <h2>Sammanställning</h2>
+                                    <p>@Html.DisplayNameFor(model => model.TotalConfirmed)</p>
                                 </header>
-                                <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
+                                <p>@Html.DisplayFor(model => model.TotalConfirmed)</p>
+
+                                <p>@Html.DisplayNameFor(model => model.ERik)</p>
+                                <p>@Html.DisplayFor(model => model.ERik)</p>
                             </div>
                         </section>
 

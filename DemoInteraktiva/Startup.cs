@@ -1,3 +1,5 @@
+using DemoInteraktiva.Infrastructure;
+using DemoInteraktiva.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +25,9 @@ namespace DemoInteraktiva
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //AddSingelton, AddScoped, AddTransient
+            services.AddScoped<IRepository, MockRepository>();
+            services.AddScoped<IApiClient, ApiClient>();
             services.AddControllersWithViews();
         }
 
