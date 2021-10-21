@@ -22,54 +22,37 @@
         <div id="features-wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="col-4 col-12-medium">
+                    <div class="col-6 col-12-medium">
 
                         <!-- Box -->
                         <section class="box feature">
-                            <a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+                            <a href="#" class="image featured"><img src="~/images/covid.jpg" alt="Covid virus logo" /></a>
                             <div class="inner">
                                 <header>
-                                    <h2>Sammanställning</h2>
-                                    <p>@Html.DisplayNameFor(model => model.TotalConfirmed)</p>
+                                    <h2>Världen</h2>
                                 </header>
+                                <p>@Html.DisplayNameFor(model => model.TotalConfirmed)</p>
                                 <p>@Html.DisplayFor(model => model.TotalConfirmed)</p>
-
-                                <p>@Html.DisplayNameFor(model => model.ERik)</p>
-                                <p>@Html.DisplayFor(model => model.ERik)</p>
                             </div>
                         </section>
 
                     </div>
-                    <div class="col-4 col-12-medium">
+                    <div class="col-6 col-12-medium">
 
                         <!-- Box -->
                         <section class="box feature">
-                            <a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+                            <a href="#" class="image featured"><img src="~/images/sweden.png" alt="swedish flag" /></a>
                             <div class="inner">
                                 <header>
-                                    <h2>An interesting title</h2>
-                                    <p>This is also an interesting subtitle</p>
+                                    <h2>Sverige</h2>
                                 </header>
-                                <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
-                            </div>
+                                 <p>@Html.DisplayNameFor(model => model.TotalConfirmedSweden)</p>
+                                <p>@Html.DisplayFor(model => model.TotalConfirmedSweden)</p>
+                                </div>
                         </section>
 
                     </div>
-                    <div class="col-4 col-12-medium">
-
-                        <!-- Box -->
-                        <section class="box feature">
-                            <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-                            <div class="inner">
-                                <header>
-                                    <h2>Oh, and finally ...</h2>
-                                    <p>Here's another intriguing subtitle</p>
-                                </header>
-                                <p>Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
-                            </div>
-                        </section>
-
-                    </div>
+                    
                 </div>
             </div>
         </div>

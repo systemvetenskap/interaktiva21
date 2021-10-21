@@ -13,5 +13,7 @@ namespace DemoInteraktiva.Repositories
         /// </summary>
         /// <returns></returns>
         Task<SummaryDto> GetSummaryAsync();
+        Task<IEnumerable<CountryDto>> GetCountriesAsync();
+        Task<IEnumerable<TotalDto>> GetContryTotal(string countrySlug);
     }
 }

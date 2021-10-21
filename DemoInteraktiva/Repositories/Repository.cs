@@ -20,5 +20,11 @@ namespace DemoInteraktiva.Repositories
             var result = await apiClient.GetAsync<SummaryDto>($"{baseEndpoint}/summary");
             return result;
         }
+
+        public async Task<IEnumerable<CountryDto>> GetCountriesAsync() =>  await apiClient.GetAsync<IEnumerable<CountryDto>>($"{baseEndpoint}/countries");
+        
+        public async  Task<IEnumerable<TotalDto>> GetContryTotal(string countrySlug)
+         =>  await apiClient.GetAsync<IEnumerable<TotalDto>>($"{baseEndpoint}/country/{countrySlug}/status/confirmed");
+
     }
 }

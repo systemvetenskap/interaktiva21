@@ -24,6 +24,25 @@ namespace DemoInteraktiva.Controllers
 
         public async Task<IActionResult> Index()
         {
+            var tasks = new List<Task>();
+            var countryTotals = new List<List<TotalDto>>();
+            var countries = await repository.GetCountriesAsync();
+            foreach (var country in countries)
+            {
+                tasks.Add(
+                    Task.Run(
+                        async() =>
+                        {
+                            var result = await repository.GetContryTotal(country.Slug);
+                            countryTotals.Add(result.ToList());
+                        }
+                    )
+                );
+            }
+
+
+
+            //var total = await repository.GetContryTotal("sweden");
             // smart kod som hämtar från ett api
             try
             {
@@ -33,7 +52,8 @@ namespace DemoInteraktiva.Controllers
             await Task.WhenAll(task1, task2);
 
             var summary = await task1;
-            var countries = await task2;
+            var countries2 = await task2;
+            
             var model = new HomeViewModel(summary);
             
              // hantera resultatet

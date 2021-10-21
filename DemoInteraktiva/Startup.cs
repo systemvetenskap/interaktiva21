@@ -26,7 +26,7 @@ namespace DemoInteraktiva
         public void ConfigureServices(IServiceCollection services)
         {
             //AddSingelton, AddScoped, AddTransient
-            services.AddScoped<IRepository, MockRepository>();
+            services.AddScoped<IRepository, Repository>();
             services.AddScoped<IApiClient, ApiClient>();
             services.AddControllersWithViews();
         }

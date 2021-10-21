@@ -8,5 +8,6 @@ namespace DemoInteraktiva.Models
     public class SummaryDto
     {
         public GlobalDto Global { get; set; }
+        public List<CountryDto> Countries { get; set; }
     }
 }

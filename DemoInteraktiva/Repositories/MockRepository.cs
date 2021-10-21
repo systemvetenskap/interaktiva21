@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DemoInteraktiva.Repositories
 {
-    public class MockRepository : IRepository
+    public class MockRepository // : IRepository
     {
         private readonly string basePath;
 
