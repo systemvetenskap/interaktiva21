@@ -25,14 +25,33 @@ namespace DemoInteraktiva.Controllers
         public async Task<IActionResult> Index()
         {
             // smart kod som hämtar från ett api
-            var summary = await repository.GetSummaryAsync();
-            var model = new HomeViewModel()
+            try
             {
-                TotalConfirmed = summary.Global.TotalConfirmed,
-                ERik=123
-            };
-            // hantera resultatet
+                 var task2 = repository.GetCountriesAsync(); // 5 min
+                 var task1 = repository.GetSummaryAsync(); // 20 min
+
+            await Task.WhenAll(task1, task2);
+
+            var summary = await task1;
+            var countries = await task2;
+            var model = new HomeViewModel(summary);
+            
+             // hantera resultatet
             return View(model);
+            }
+            catch (System.Exception)
+            {
+                var model = new HomeViewModel();
+                ModelState.AddModelError(string.Empty, "Fick inte kontakt med Covidstatistiken, visar istället gårdagens siffror");
+                return View(model);
+                throw;
+            }
+            
+
+
+           
+           
+           
         }
 
     }
