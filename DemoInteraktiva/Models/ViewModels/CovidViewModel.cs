@@ -6,11 +6,12 @@ namespace DemoInteraktiva.Models.ViewModels
 {
     public class CovidViewModel
     {
-        private readonly List<CountryDto> countries;
+        private readonly IEnumerable<CountryDto> countries;
 
         public string SelectedCountry { get; set; }
         public IEnumerable<SelectListItem> Countries 
-        { 
+        {
+            #region Fyll data i vår listbox
             get
             {
                 if (countries != null)
@@ -23,12 +24,13 @@ namespace DemoInteraktiva.Models.ViewModels
                         });
                 }
                 return null;
-            }
+            } 
+            #endregion
         }            
 
-        public CovidViewModel(List<CountryDto> countries)
+        public CovidViewModel(IEnumerable<CountryDto> countries)
         {
-            this.countries = countries;
+            this.countries = countries.OrderBy(x => x.Country);
         }
     }
 }

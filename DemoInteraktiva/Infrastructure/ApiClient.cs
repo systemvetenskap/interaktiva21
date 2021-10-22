@@ -26,8 +26,12 @@ namespace DemoInteraktiva.Infrastructure
                     var data = JsonConvert.DeserializeObject<T>(responseJson);
                     return data;
                 }
+                if (response.StatusCode == HttpStatusCode.TooManyRequests)
+                {
 
-                throw new Exception("Fick ingen kontakt med vårt api");
+                    throw new Exception("För många anrop mot api");
+                }
+                throw new Exception("Felaktigt api-anrop");
 
             }
             catch (Exception)

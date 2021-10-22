@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DemoInteraktiva.Models.ViewModels;
+using DemoInteraktiva.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,30 @@ namespace DemoInteraktiva.Controllers
 {
     public class CovidController : Controller
     {
-        public IActionResult Index()
+        private readonly IRepository repository;
+
+        public CovidController(IRepository repository)
         {
-            return View();
+            this.repository = repository;
+        }
+        public async Task<IActionResult> Index()
+        {
+            var countries = await repository.GetCountriesAsync();
+            var model = new CovidViewModel(countries);
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Search(string selectedCountry)
+        {
+            var countries = await repository.GetCountriesAsync();
+            var data = await repository.GetContryTotal(selectedCountry);
+            if (data.Count() == 0)
+            {
+                ModelState.AddModelError("NoContent", "Det finns ingen statistik för det landet");
+            }
+            var model = new CovidViewModel(countries);
+            return View("index", model);
         }
     }
 }

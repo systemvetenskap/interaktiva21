@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DemoInteraktiva.Repositories
 {
-    public class MockRepository // : IRepository
+    public class MockRepository  : IRepository
     {
         private readonly string basePath;
 
@@ -17,6 +17,17 @@ namespace DemoInteraktiva.Repositories
         {
             basePath = $@"{environment.ContentRootPath}\Mock\";
         }
+
+        public Task<IEnumerable<TotalDto>> GetContryTotal(string countrySlug)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<CountryDto>> GetCountriesAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<SummaryDto> GetSummaryAsync()
         {
             await Task.Delay(0);

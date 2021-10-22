@@ -8,13 +8,16 @@
 
                     <!-- Sidebar -->
                     <section>
-                        <h3>Covidinformation</h3>
-                        <p>
-                            @Html.DropDownListFor(x => x.Countries, new SelectList(Model.Countries, "Value", "Text"), "välj land")
-                        </p>
-                        <footer>
-                            <a href="#" class="button icon solid fa-info-circle">Find out more</a>
-                        </footer>
+                        <form asp-action="Search" method="get">
+                            <h3>Covidinformation</h3>
+                            <p>
+                                @Html.DropDownListFor(x => x.SelectedCountry, new SelectList(Model.Countries, "Value", "Text"), "Välj land")
+                            </p>
+                            <footer>
+                                <button class="button icon solid fa-info-circle">Find out more</button>
+                            </footer>
+                        </form>
+                        @Html.ValidationSummary()
                     </section>
 
                     <section>

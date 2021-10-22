@@ -27,19 +27,27 @@ namespace DemoInteraktiva.Controllers
             var tasks = new List<Task>();
             var countryTotals = new List<List<TotalDto>>();
             var countries = await repository.GetCountriesAsync();
-            foreach (var country in countries)
-            {
-                tasks.Add(
-                    Task.Run(
-                        async() =>
-                        {
-                            var result = await repository.GetContryTotal(country.Slug);
-                            countryTotals.Add(result.ToList());
-                        }
-                    )
-                );
-            }
-
+        //    var data = await repository.GetCountryTotalByCountry(countries);
+            //try
+            //{
+            //    foreach (var country in countries)
+            //    {
+            //        tasks.Add(
+            //            Task.Run(
+            //                async () =>
+            //                {
+            //                    var result = await repository.GetContryTotal(country.Slug);
+            //                    countryTotals.Add(result.ToList());
+            //                }
+            //            )
+            //        );
+            //    }
+            //    await Task.WhenAll(tasks);
+            //}
+            //catch (Exception)
+            //{
+               
+            //}
 
 
             //var total = await repository.GetContryTotal("sweden");
