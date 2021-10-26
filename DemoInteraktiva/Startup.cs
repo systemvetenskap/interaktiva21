@@ -15,6 +15,7 @@ namespace DemoInteraktiva
 {
     public class Startup
     {
+        private string omdbApiKey = null;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -25,6 +26,7 @@ namespace DemoInteraktiva
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            omdbApiKey = Configuration["Omdb:ApiKey"];
             //AddSingelton, AddScoped, AddTransient
             services.AddScoped<IRepository, Repository>();
             services.AddScoped<IApiClient, ApiClient>();

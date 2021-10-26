@@ -1,6 +1,7 @@
 ﻿using DemoInteraktiva.Models.ViewModels;
 using DemoInteraktiva.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace DemoInteraktiva.Controllers
     public class CovidController : Controller
     {
         private readonly IRepository repository;
+        private readonly IConfiguration configuration;
 
         public CovidController(IRepository repository)
         {
